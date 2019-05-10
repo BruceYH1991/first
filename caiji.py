@@ -88,7 +88,7 @@ application['LBS'] = application['geographical_location'].apply(
     lambda x: 1 if x else 0
 )
 application['order'] = application['status'].apply(
-    lambda x: 1 if x >= 0 else 0
+    lambda x: 1 if x and x >= 0 else 0
 )
 application.drop(['geographical_location', 'status'], axis=1, inplace=True)
 application.rename(columns={'id': 'application_id'}, inplace=True)
